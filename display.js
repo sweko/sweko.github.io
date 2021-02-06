@@ -12,11 +12,11 @@ var getRuntime = function (_a) {
         return "";
     }
     if (runtime < 60) {
-        return "<div class=\"runtime\"><strong>Run time: </strong>" + runtime + "min";
+        return "<div class=\"runtime detail\"><strong>Run time: </strong>" + runtime + "min</div>";
     }
     var hours = (runtime / 60) | 0;
     var minutes = runtime % 60;
-    return "<div class=\"runtime\"><strong>Run time: </strong>" + hours + "h " + minutes + "min";
+    return "<div class=\"runtime detail\"><strong>Run time: </strong>" + hours + "h " + minutes + "min</div>";
 };
 var showResults = function (movie) {
     var backdropUrl = "http://image.tmdb.org/t/p/w1280/" + movie.backdropUrl;
@@ -25,5 +25,5 @@ var showResults = function (movie) {
     var poster = movie.posterUrl
         ? "<img src=\"http://image.tmdb.org/t/p/w500/" + movie.posterUrl + "\" class=\"poster\" />"
         : "<img src=\"https://via.placeholder.com/500x750.png?text=No+Poster+Available\" class=\"poster\" />";
-    result.innerHTML = "<div class=\"main-part\">\n        <div class=\"title\">" + movie.title + " (" + movie.releaseDate.getFullYear() + ")</div>\n        " + poster + "\n        <div class=\"tagline\">" + movie.tagline + "</div>\n    </div>\n    <div class=\"details-part\">\n        <div class=\"overview\"><strong>Plot summary: </strong>" + movie.overview + "</div>\n        <div class=\"director\"><strong>Directed By: </strong>" + movie.directedBy + "</div>\n        <div class=\"screenplay\"><strong>Written By: </strong>" + movie.writenBy + "</div>\n        " + getRuntime(movie) + "\n        <div class=\"cast\">\n            <div><strong>Starring:</strong></div>\n            " + getCastElements(movie) + "\n        </div>\n    </div>";
+    result.innerHTML = "<div class=\"main-part\">\n        <div class=\"title\">" + movie.title + " (" + movie.releaseDate.getFullYear() + ")</div>\n        " + poster + "\n        <div class=\"tagline\">" + movie.tagline + "</div>\n    </div>\n    <div class=\"details-part\">\n        <div class=\"overview detail\"><strong>Plot summary: </strong>" + movie.overview + "</div>\n        <div class=\"director detail\"><strong>Directed By: </strong>" + movie.directedBy + "</div>\n        <div class=\"screenplay detail\"><strong>Written By: </strong>" + movie.writenBy + "</div>\n        " + getRuntime(movie) + "\n        <div class=\"cast detail\">\n            <div><strong>Starring:</strong></div>\n            " + getCastElements(movie) + "\n        </div>\n    </div>";
 };

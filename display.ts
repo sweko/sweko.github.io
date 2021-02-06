@@ -18,11 +18,11 @@ const getRuntime = ({ runtime }: Movie) => {
   }
 
   if (runtime < 60) {
-    return `<div class="runtime"><strong>Run time: </strong>${runtime}min`;
+    return `<div class="runtime detail"><strong>Run time: </strong>${runtime}min</div>`;
   }
   const hours = (runtime / 60) | 0;
   const minutes = runtime % 60;
-  return `<div class="runtime"><strong>Run time: </strong>${hours}h ${minutes}min`;
+  return `<div class="runtime detail"><strong>Run time: </strong>${hours}h ${minutes}min</div>`;
 };
 
 const showResults = (movie: Movie) => {
@@ -41,11 +41,11 @@ const showResults = (movie: Movie) => {
         <div class="tagline">${movie.tagline}</div>
     </div>
     <div class="details-part">
-        <div class="overview"><strong>Plot summary: </strong>${movie.overview}</div>
-        <div class="director"><strong>Directed By: </strong>${movie.directedBy}</div>
-        <div class="screenplay"><strong>Written By: </strong>${movie.writenBy}</div>
+        <div class="overview detail"><strong>Plot summary: </strong>${movie.overview}</div>
+        <div class="director detail"><strong>Directed By: </strong>${movie.directedBy}</div>
+        <div class="screenplay detail"><strong>Written By: </strong>${movie.writenBy}</div>
         ${getRuntime(movie)}
-        <div class="cast">
+        <div class="cast detail">
             <div><strong>Starring:</strong></div>
             ${getCastElements(movie)}
         </div>
