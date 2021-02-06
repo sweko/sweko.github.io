@@ -9,21 +9,16 @@ var search = function (value) {
         var data = JSON.parse(this.response);
         if (data.results.length !== 0) {
             var resultMovie_1 = data.results[0];
-            console.log(resultMovie_1);
-            console.log("Getting data for the movie");
             var movieXhr = new XMLHttpRequest();
             var movieUrl = server + "movie/" + resultMovie_1.id + "?api_key=" + apiKey;
             movieXhr.open('GET', movieUrl);
             movieXhr.onload = function () {
                 var movieData = JSON.parse(this.response);
-                console.log(movieData);
-                console.log("Getting people for the movie");
                 var peopleXhr = new XMLHttpRequest();
                 var peopleUrl = server + "movie/" + resultMovie_1.id + "/credits?api_key=" + apiKey;
                 peopleXhr.open('GET', peopleUrl);
                 peopleXhr.onload = function () {
                     var data = JSON.parse(this.response);
-                    console.log(data);
                     data.cast.sort(function (f, s) { return f.order - s.order; });
                     var mainActors = data.cast.slice(0, 6);
                     var characters = mainActors.map(function (actor) { return ({
@@ -59,7 +54,7 @@ var search = function (value) {
             movieXhr.send();
         }
         else {
-            console.log("not Found");
+            clearResults(value);
         }
     };
     xhr.send();

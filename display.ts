@@ -51,3 +51,10 @@ const showResults = (movie: Movie) => {
         </div>
     </div>`;
 };
+
+const clearResults = (search: string) => {
+    document.body.style.backgroundImage = "";
+
+    const result = document.getElementById("result");
+    result.innerHTML = `<h1>No movies found for query "${search}"</h1>`
+  };

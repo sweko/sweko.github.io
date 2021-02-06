@@ -13,23 +13,18 @@ const search = (value: string) => {
         const data = JSON.parse(this.response) as SearchResult;
         if (data.results.length !== 0) {
             const resultMovie = data.results[0];
-            console.log(resultMovie);
-            console.log("Getting data for the movie");
             const movieXhr = new XMLHttpRequest();
             const movieUrl = `${server}movie/${resultMovie.id}?api_key=${apiKey}`;
 
             movieXhr.open('GET', movieUrl);
             movieXhr.onload = function () {
                 const movieData: MovieResult = JSON.parse(this.response);
-                console.log(movieData);
-                console.log("Getting people for the movie");
                 const peopleXhr = new XMLHttpRequest();
                 const peopleUrl = `${server}movie/${resultMovie.id}/credits?api_key=${apiKey}`;
-    
+
                 peopleXhr.open('GET', peopleUrl);
                 peopleXhr.onload = function () {
                     const data = JSON.parse(this.response) as PeopleResult;
-                    console.log(data);
                     data.cast.sort((f, s) => f.order - s.order);
                     const mainActors = data.cast.slice(0, 6);
                     const characters :Character[] = mainActors.map(actor => ({
@@ -69,7 +64,7 @@ const search = (value: string) => {
 
             movieXhr.send();
         } else {
-            console.log("not Found");
+            clearResults(value);
         }
     }
 
