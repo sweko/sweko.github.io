@@ -37,22 +37,20 @@ body {
     padding: 50px;
     display: flex;
   }
-  
+
   .main-part {
-    float: left;
     text-align: center;
     padding-right: 10px;
   }
-  
+
   .title {
     font-size: 3em;
   }
-  
+
   .details-part {
-    float: left;
     max-width: 750px;
   }
-  
+
   .details-part .detail{
     padding-top: 5px;
   }
@@ -64,7 +62,6 @@ body {
   }
 
   .character {
-    float: left;
     text-align: center;
     padding: 8px;
   }
