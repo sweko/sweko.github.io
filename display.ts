@@ -45,8 +45,8 @@ const showResults = (movie: Movie) => {
         <div class="director detail"><strong>Directed By: </strong>${movie.directedBy}</div>
         <div class="screenplay detail"><strong>Written By: </strong>${movie.writenBy}</div>
         ${getRuntime(movie)}
-        <div class="cast detail">
-            <div><strong>Starring:</strong></div>
+        <div class="starring detail"><strong>Starring:</strong></div>
+        <div class="cast">
             ${getCastElements(movie)}
         </div>
     </div>`;

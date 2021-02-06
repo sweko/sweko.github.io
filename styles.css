@@ -50,10 +50,17 @@ body {
   
   .details-part {
     float: left;
+    max-width: 750px;
   }
   
   .details-part .detail{
     padding-top: 5px;
+  }
+
+  .cast {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
   }
 
   .character {
@@ -61,3 +68,4 @@ body {
     text-align: center;
     padding: 8px;
   }
+
