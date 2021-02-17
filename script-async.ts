@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const movie = await search(movieTitle);
         showResults(movie);
-      } catch {
+      } else {
         clearResults(movieTitle);
       }
     });

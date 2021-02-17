@@ -32,3 +32,4 @@ var clearResults = function (search) {
     var result = document.getElementById("result");
     result.innerHTML = "<h1>No movies found for query \"" + search + "\"</h1>";
 };
+//# sourceMappingURL=display.js.map

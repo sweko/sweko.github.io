@@ -1,4 +1,4 @@
-interface SearchResult {
+interface SearchResultApi {
     page: number,
     results: {
         id: number,
@@ -6,7 +6,7 @@ interface SearchResult {
     }[]
 }
 
-interface MovieResult {
+interface MovieResultApi {
     id: number;
     backdrop_path: string;
     overview: string;
@@ -17,24 +17,24 @@ interface MovieResult {
     runtime:number;
 }
 
-interface PeopleResult {
+interface PeopleResultApi {
     id: number;
-    cast: CastResult[];
-    crew: CrewResult[]
+    cast: CastResultApi[];
+    crew: CrewResultApi[]
 }
 
-interface PersonResult {
+interface PersonResultApi {
     id: number,
     name: string;
 }
 
-interface CastResult extends PersonResult {
+interface CastResultApi extends PersonResultApi {
     order: number;
     character: string;
     profile_path: string;
 }
 
-interface CrewResult extends PersonResult {
+interface CrewResultApi extends PersonResultApi {
     department: string;
     job: string;
 }
